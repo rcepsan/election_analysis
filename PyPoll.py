@@ -21,7 +21,12 @@ with open(file_to_load) as election_data:
     # Print each row in the CSV file.
     for row in file_reader:
     print(row)
-# 1. The total number of votes cast
+         # 2. Add to the total vote count
+        total_votes += 1
+
+# 3. Print the total votes.
+print(total_votes)
+
 # 2. A complete list of candidates who received votes
 # 3. The percentage of votes each candidate won
 # 4. The total number of votes each candidate won
