@@ -1,9 +1,5 @@
-# 0. The data we need to retrieve.
-# og - file_to_load = 'election_results2.csv'
-
-# Open the election results and read the file.
-
-# Add our dependencies.
+# file_to_load = 'election_results2.csv'
+# The data we need to retrieve. Add our dependencies.
 import csv
 import os
 # Assign a variable to load a file from a path.
@@ -21,6 +17,10 @@ with open(file_to_load) as election_data:
     # Print header row
     headers = next(file_reader)
     print(headers)
+    
+    # Print each row in the CSV file.
+    for row in file_reader:
+    print(row)
 # 1. The total number of votes cast
 # 2. A complete list of candidates who received votes
 # 3. The percentage of votes each candidate won
