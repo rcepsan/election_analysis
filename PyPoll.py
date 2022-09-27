@@ -7,30 +7,38 @@ file_to_load = os.path.join("election_results2.csv")
 # Assign a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
+# Initialize a total vote counter.
+total_votes = 0
+
+# Candidate options and candidate votes
+candidate_options = []
+# 1. Declare the empty dictionary.
+candidate_votes = {}
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
-
-# To do: perform analysis.
-    # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    # Print header row
+    # Read the header row.
     headers = next(file_reader)
-    print(headers)
-    
+
     # Print each row in the CSV file.
     for row in file_reader:
-    print(row)
-         # 2. Add to the total vote count
+        # Add to the total vote count.
         total_votes += 1
 
-# 3. Print the total votes.
-print(total_votes)
+        # Print the candidate name from each row.
+        candidate_name = row[2]
 
-# 2. A complete list of candidates who received votes
-# 3. The percentage of votes each candidate won
-# 4. The total number of votes each candidate won
-# 5. The winner of the election based on popular vote.
+        if candidate_name not in candidate_options:
+          # Add the candidate name to the candidate list.
+            candidate_options.append(candidate_name)
 
-# Close the file.
-election_data.close()
+           # 2. Begin tracking that candidate's vote count.
+            candidate_votes[candidate_name] = 0
+
+        # Add a vote to that candidate's count.
+        candidate_votes[candidate_name] += 1
+
+# Print the candidate vote dictionary.
+print(candidate_votes)
